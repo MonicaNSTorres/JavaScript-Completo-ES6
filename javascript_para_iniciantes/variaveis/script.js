@@ -4,6 +4,7 @@ var nome = "João";
 var nome = "Maria"; //redeclaração permitida com var
 console.log(nome);
 
+//EXERCICIOS
 // Declarar uma variável com o seu nome
 var nome = "Mônica";
 
