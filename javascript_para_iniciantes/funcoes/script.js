@@ -117,10 +117,3 @@ function jaVisitei(paisesVisitados) {
 
 console.log(precisoVisitar(20));
 console.log(jaVisitei(20));
-
-// random de paises aleatorios
-var paises = ('Italia', 'Espanha', 'Holanda');
-
-function randomPaises(){
-    return paises.
-}
