@@ -14,6 +14,7 @@ O objetivo deste treinamento é dominar o JavaScript do básico ao avançado, ap
 - [X] Eventos
 - [X] ForEach e ArrowFunction
 - [X] Funções
+- [X] Native, Hosts e Users
 - [X] Números e Operadores
 - [X] O que é o dom
 - [X] Objetos
