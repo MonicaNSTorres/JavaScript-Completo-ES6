@@ -20,6 +20,7 @@ O objetivo deste treinamento é dominar o JavaScript do básico ao avançado, ap
 - [X] Objetos
 - [X] Prototype
 - [X] Seleção de Elementos
+- [X] String
 - [X] Tipo de Dados
 - [X] Transversing e Manipulação
 - [X] Tudo é Objeto
