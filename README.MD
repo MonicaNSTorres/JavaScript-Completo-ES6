@@ -5,6 +5,7 @@
 O objetivo deste treinamento é dominar o JavaScript do básico ao avançado, aplicando os conceitos na web por meio de manipulação da árvore DOM e consumo de APIs externas utilizando os padrões mais modernos do EcmaScript (ES6+).</p>
 
 ### O que foi aprendido até agora
+- [X] Array
 - [X] Arrays e Loops
 - [X] Atribuição e Ternario
 - [X] Boolean e Condicionais
@@ -15,6 +16,7 @@ O objetivo deste treinamento é dominar o JavaScript do básico ao avançado, ap
 - [X] ForEach e ArrowFunction
 - [X] Funções
 - [X] Native, Hosts e Users
+- [X] Number e Math
 - [X] Números e Operadores
 - [X] O que é o dom
 - [X] Objetos
