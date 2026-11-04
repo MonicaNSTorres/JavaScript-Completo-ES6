@@ -26,7 +26,7 @@ console.log(Number.parseInt('23.49'));
 console.log(Number.parseInt(50.60, 10));//se passarmos virgula, é por que estamos falando com casa decimal
 
 //n.toFixed(decimais)
-//arredonda o numero de acordo com a quantidade de casas decimais que voce tem
+//arredonda o numero de acordo com a quantidade de casas decimais que voce tem e que voce passa
 const preco = 32.4569;
 console.log(preco.toFixed());
 console.log(preco.toFixed(3));//me retorna arredondado
@@ -85,17 +85,10 @@ console.log(`Número que saiu: ${numeroAleatorio}`);
 
 // Retorne o maior número da lista abaixo
 const numeros = '4, 5, 20, 8, 9';
-const formatadoNumeros = numeros.trim().split(", ");
+const arrayNumeros = numeros.split(", ");
+const numeroMaximo = Math.max(...arrayNumeros);//spread
 
-
-//console.log(Number.parseFloat(formatadoNumeros))
-
-/*formatadoNumeros.forEach((item)=>{
-    const transformado = Number.parseInt(item);
-
-    console.log(Math.max(transformado))
-})*/
-
+console.log(numeroMaximo);
 
 // Crie uma função para limpar os preços
 // e retornar os números com centavos arredondados
@@ -103,25 +96,100 @@ const formatadoNumeros = numeros.trim().split(", ");
 const listaPrecos = ['R$ 59,99', ' R$ 100,222',
                      'R$ 230  ', 'r$  200'];
 
-/*const limparPrecos = Number.parseFloat(listaPrecos);
-console.log(limparPrecos);*/
+function limparPreco(preco){
+    preco = +preco.toLowerCase().replace('r$', '').trim().replace(',', '.');
+    preco = +preco.toFixed(2);
+    //console.log(preco);
 
-let precos = 0;
-let total = 0
-listaPrecos.forEach((item)=>{   
-    if(precos = +item.trim().replace(",", ".").toLowerCase().replace("r$", " ").trimStart()){
-        console.log(precos.toFixed());//limpa os preços
-    }else{
-        total += precos;
-        console.log(total)
-    }
+    return preco;
+}
+
+let soma = 0;
+listaPrecos.forEach((item)=>{
+    soma += limparPreco(item);
 })
 
+console.log(preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}));
 
-/*listaPrecos.forEach((item)=>{
-    item = item.toLowerCase();
-    item = item.trim();
-    item = item.split('r$', ' ');
-});*/
+limparPreco(listaPrecos[1]);
 
-//console.log(formatada)
+//MAIS EXERCICIOS
+// Abaixo temos uma string contendo as notas de um aluno.
+// Transforme essa string em uma array de números.
+// Encontre a maior nota utilizando Math.max().
+// Encontre a menor nota utilizando Math.min().
+// Calcule a média de todas as notas utilizando forEach().
+// Arredonde a média para 2 casas decimais.
+
+// Exiba no console:
+// Maior nota:
+// Menor nota:
+// Média final:
+
+const notas = '7.5, 8.2, 6.9, 9.8, 5.5, 8.7';
+const arrayNotas = notas.split(", ");
+const maiorNota = Math.max(...arrayNotas);
+const menorNota = Math.min(...arrayNotas);
+
+let somaNotas = 0;
+arrayNotas.forEach((item)=>{
+    somaNotas += item;
+});
+
+const media = arrayNotas.length;
+
+console.log(`Maior nota: ${maiorNota}`);
+console.log(`Maior nota: ${menorNota}`);
+console.log(`Média final: ${media}`);
+
+
+
+// Abaixo temos uma array com preços de produtos.
+// Observe que os valores possuem espaços,
+// letras maiúsculas/minúsculas e vírgulas.
+
+// Crie uma função chamada limparProdutos() que:
+// 1. Remova o símbolo R$ (maiúsculo ou minúsculo).
+// 2. Remova os espaços desnecessários.
+// 3. Substitua a vírgula por ponto.
+// 4. Converta o preço para Number.
+// 5. Arredonde para 2 casas decimais.
+// 6. Retorne o preço convertido.
+// Utilize forEach() para somar todos os preços.
+// Calcule um desconto de 10% sobre o total.
+// Exiba no console:
+// Valor total dos produtos:
+// Valor do desconto:
+// Valor final com desconto:
+// Formate os valores finais em reais (R$)
+// utilizando toLocaleString().
+
+const produtos = [
+  'R$ 45,999',
+  ' r$ 120,50 ',
+  'R$ 89,90',
+  'r$  250,755',
+  ' R$ 35 '
+];
+
+function limparProdutos(produto){
+    produto = +produto.toLowerCase().replace('r$', '').trim().replace(',', '.');
+    produto = +produto.toFixed(2);
+
+    return produto;
+};
+
+let somaProdutos = 0;
+let desconto = 0;
+let valorFinal = 0;
+produtos.forEach((item)=>{
+    somaProdutos += limparProdutos(item);
+    desconto = (somaProdutos * 10) / 100; 
+    valorFinal = somaProdutos - desconto;
+});
+
+console.log(`Valor total dos produtos: ${somaProdutos.toLocaleString('pt-BR', {style:"currency", currency:"BRL"})}`);
+console.log(`Valor do desconto: ${desconto.toLocaleString('pt-BR', {style:"currency", currency:"BRL"})}`);
+console.log(`Valor final com desconto: ${valorFinal.toLocaleString('pt-BR', {style:"currency", currency:"BRL"})}`);
+
+limparProdutos(produtos[1]);
