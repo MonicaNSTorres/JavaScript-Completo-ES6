@@ -6,6 +6,7 @@ O objetivo deste treinamento é dominar o JavaScript do básico ao avançado, ap
 
 ### O que foi aprendido até agora
 - [X] Array
+- [X] Array e Iteração
 - [X] Arrays e Loops
 - [X] Atribuição e Ternario
 - [X] Boolean e Condicionais
