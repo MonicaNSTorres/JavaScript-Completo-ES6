@@ -189,7 +189,7 @@ console.log(novoElemento('h1', 'ativo', 'Você é foda'));
 const elemento2 = novoElemento.bind(null, 'h1', 'titulo');
 
 console.log(elemento2('oi mônica'));
-
+ 
 
 //MAIS EXERCICIOS
 // Crie uma função chamada calcularDesconto
@@ -202,8 +202,13 @@ console.log(elemento2('oi mônica'));
 // Exiba o nome da função.
 // Exiba quantos parâmetros ela possui.
 // Execute a função com preço 200 e desconto 15.
+function calcularDesconto(preco, porcentagem){
+  return (preco * porcentagem) / 100
+};
 
-
+console.log(calcularDesconto.name);
+console.log(calcularDesconto.length);
+console.log(calcularDesconto(200, 15));
 
 // Crie uma função chamada apresentarPessoa
 // que utilize this para retornar uma frase
@@ -226,7 +231,12 @@ const pessoa2 = {
   idade: 32
 };
 
+function apresentarPessoa(){
+  return this.nome + ' tem ' + this.idade + ' anos'
+};
 
+console.log(apresentarPessoa.call(pessoa1));
+console.log(apresentarPessoa.call(pessoa2));
 
 // Crie uma função chamada calcularSalario
 // que receba um valor de bônus.
@@ -250,6 +260,12 @@ const funcionario2 = {
   salario: 4500
 };
 
+function calcularSalario(bonus){
+  return this.salario + bonus;
+};
+
+console.log(calcularSalario.call({nome: 'João', salario: 3000}, 500));
+console.log(calcularSalario.call({nome: 'Maria', salario: 4500}, 500));
 
 
 // Crie uma função chamada descreverProduto
@@ -274,3 +290,144 @@ const produto = {
 // Considere desconto como porcentagem.
 // Utilize 10% de desconto.
   
+function descreverProduto(desconto){
+  const precoComDesconto = this.preco - (this.preco * desconto) / 100;
+
+  return this.nome + ' custa R$ ' + precoComDesconto.toFixed(2);
+}
+
+console.log(descreverProduto.call(produto, 10));
+
+
+//MAIS EXERCICIOS
+// EXERCÍCIO 1
+// Crie uma função chamada calcularDesconto
+// que receba três argumentos:
+// preco, quantidade e desconto.
+//
+// A função deverá:
+// 1. Calcular o preço total dos produtos.
+// 2. Aplicar o desconto em porcentagem.
+// 3. Retornar o valor final da compra.
+//
+// Depois:
+// Exiba o nome da função utilizando .name.
+// Exiba a quantidade de parâmetros utilizando .length.
+// Execute a função com:
+// Preço: 150
+// Quantidade: 3
+// Desconto: 20%
+//
+// Resultado esperado:
+// 360
+
+
+// EXERCÍCIO 2
+// Crie uma função chamada apresentarAluno
+// que utilize this.nome e this.curso.
+//
+// A função deverá receber um argumento
+// chamado semestre.
+//
+// Retorne uma frase contendo o nome,
+// o curso e o semestre do aluno.
+//
+// Utilize call() para executar a função
+// com os dois objetos abaixo.
+//
+// Resultado esperado:
+// "Lucas estuda ADS no 3º semestre"
+// "Mariana estuda Engenharia no 5º semestre"
+
+const aluno1 = {
+  nome: 'Lucas',
+  curso: 'ADS'
+};
+
+const aluno2 = {
+  nome: 'Mariana',
+  curso: 'Engenharia'
+};
+
+
+// EXERCÍCIO 3
+// Crie uma função chamada calcularSalarioFinal
+// que receba dois argumentos:
+// bonus e desconto.
+//
+// A função deverá utilizar this.salario
+// para calcular o salário final.
+//
+// Regras:
+// 1. Somar o bônus ao salário.
+// 2. Subtrair o desconto.
+// 3. Retornar o salário final.
+//
+// Utilize call() para executar a função
+// com os dois funcionários abaixo.
+//
+// João:
+// Bônus: 500
+// Desconto: 200
+//
+// Ana:
+// Bônus: 1000
+// Desconto: 300
+//
+// Resultado esperado:
+// João: 3300
+// Ana: 4700
+
+const funcionario3 = {
+  nome: 'João',
+  salario: 3000
+};
+
+const funcionario4 = {
+  nome: 'Ana',
+  salario: 4000
+};
+
+
+// EXERCÍCIO 4 - DESAFIO
+// Crie uma função chamada calcularVenda
+// que receba dois argumentos:
+// quantidade e desconto.
+//
+// A função deverá utilizar:
+// this.nome
+// this.preco
+//
+// Regras:
+// 1. Calcular o valor total da compra.
+// 2. Aplicar o desconto em porcentagem.
+// 3. Retornar uma frase contendo o nome
+//    do produto e o preço final.
+//
+// Utilize call() para executar a função
+// com os dois produtos abaixo.
+//
+// Notebook:
+// Quantidade: 2
+// Desconto: 10%
+//
+// Mouse:
+// Quantidade: 3
+// Desconto: 20%
+//
+// Resultado esperado:
+// "Notebook - Total: R$ 5400.00"
+// "Mouse - Total: R$ 240.00"
+//
+// Dica: utilize toFixed(2) para formatar
+// o valor final com duas casas decimais.
+
+const produto1 = {
+  nome: 'Notebook',
+  preco: 3000
+};
+
+const produto2 = {
+  nome: 'Mouse',
+  preco: 100
+};
