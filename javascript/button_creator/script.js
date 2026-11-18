@@ -1,7 +1,6 @@
 const controles = document.getElementById("controles");
 const cssText = document.querySelector(".css");
 const btn = document.querySelector(".btn");
-
 controles.addEventListener("change", handleChange);
 
 const handleStyle = {
@@ -10,10 +9,10 @@ const handleStyle = {
     this.element.style.backgroundColor = value;
   },
   height(value) {
-    this.element.style.height = value + " px";
+    this.element.style.height = value + 'px';
   },
   width(value) {
-    this.element.style.width = value + " px";
+    this.element.style.width = value + 'px';
   },
   texto(value) {
     this.element.innerText = value;
@@ -25,13 +24,13 @@ const handleStyle = {
     this.element.style.border = value;
   },
   borderRadius(value) {
-    this.element.style.borderRadius = value + " px";
+    this.element.style.borderRadius = value + 'px';
   },
   fontFamily(value) {
     this.element.style.fontFamily = value;
   },
   fontSize(value) {
-    this.element.style.fontSize = value + " px";
+    this.element.style.fontSize = value + 'px';
   },
 };
 
@@ -40,8 +39,24 @@ function handleChange(event) {
     const value = event.target.value;
 
     handleStyle[name](value);
+    saveValue();
     showCss();
 };
+
+function saveValue(name, value){
+    localStorage[name] = value;
+};
+
+function setValues(){
+    const properties = Object.keys(localStorage);
+    //console.log(properties);
+
+    properties.forEach((propertie)=>{
+        handleStyle[propertie](localStorage[propertie]);
+        controles.elements[propertie].value = localStorage[propertie];
+    });
+    showCss();
+}
 
 function showCss(){
     cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');
