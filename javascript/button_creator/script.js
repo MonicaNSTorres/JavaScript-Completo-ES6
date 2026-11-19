@@ -26,6 +26,9 @@ const handleStyle = {
   borderRadius(value) {
     this.element.style.borderRadius = value + 'px';
   },
+  borderColor(value) {
+    this.element.style.borderColor = value;
+  },
   fontFamily(value) {
     this.element.style.fontFamily = value;
   },
@@ -39,7 +42,7 @@ function handleChange(event) {
     const value = event.target.value;
 
     handleStyle[name](value);
-    saveValue();
+    saveValue(name, value);
     showCss();
 };
 
@@ -56,7 +59,9 @@ function setValues(){
         controles.elements[propertie].value = localStorage[propertie];
     });
     showCss();
-}
+};
+
+setValues();
 
 function showCss(){
     cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');
