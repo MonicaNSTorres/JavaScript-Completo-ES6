@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de CEP</title>
+  <link rel="stylesheet" href="styleCep.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="card">
+      <h1>Consulta de CEP</h1>
+
+      <p class="descricao">
+        Digite seu CEP para consultar o endereço completo.
+      </p>
+
+      <form id="form-cep">
+        <label for="cep">CEP</label>
+
+        <input
+          type="text"
+          id="cep"
+          name="cep"
+        >
+
+        <button type="submit" id="buscar">
+          Buscar endereço
+        </button>
+      </form>
+
+      <div class="resultado" id="resultado">
+        <h2>Resultado da consulta</h2>
+
+        <p id="mensagem">
+          O endereço aparecerá aqui após a busca.
+        </p>
+
+        <div id="endereco">
+          <p><strong>CEP:</strong> <span id="res-cep"></span></p>
+          <p><strong>Rua:</strong> <span id="rua"></span></p>
+          <p><strong>Bairro:</strong> <span id="bairro"></span></p>
+          <p><strong>Cidade:</strong> <span id="cidade"></span></p>
+          <p><strong>Estado:</strong> <span id="estado"></span></p>
+          <p><strong>UF:</strong> <span id="uf"></span></p>
+          <p><strong>Região:</strong> <span id="regiao"></span></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="cep.js"></script>
+</body>
+</html>
