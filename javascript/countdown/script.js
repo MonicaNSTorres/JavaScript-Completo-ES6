@@ -16,8 +16,10 @@ setInterval(()=>{
 
 p.style.backgroundColor = 'red';
 p.style.color = 'white';
-p.style.width = 20 + 'rem';
+p.style.width = 30 + 'rem';
 p.style.alignItems = 'center';
 p.style.display = 'flex';
 p.style.justifyContent = 'center';
 p.style.lineHeight = 1.5;
+p.style.fontFamily = 'IBM Plex Mono, monospace';
+p.style.fontSize = 20 + 'px';
