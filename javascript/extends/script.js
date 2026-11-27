@@ -58,4 +58,4 @@ class Campo extends Flor{
 }
 
 const orquidea = new Campo('Orquidea', 'purple', 'Orquidario');
-console.log(orquidea.frase());
+console.log(orquidea.frase()); 
